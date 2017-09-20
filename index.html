@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>nini</title>
+
+    <!-- Lato Font -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/gallery-materialize.min.opt.css" media="screen,projection"/>
+    <style>.title-wrapper ul {
+        width: 100%;
+        display: block;
+    }
+
+    .title-wrapper ul li {
+        float: left;
+        height: 60px;
+        margin-left: 20px;
+        position: relative;
+
+    }
+
+    .title-wrapper ul li h3 {
+        height: 100%;
+    }
+
+    .title-wrapper ul li span {
+        display: block;
+        font-size: 14px;
+        height: 50%;
+    }
+
+    .sectionx img {
+        height: 30px;
+        width: 20px;
+        display: inline-block;
+    }
+
+    .sectionx h4 {
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    .section_box {
+        min-height: 400px;
+        width: 100%;
+    }
+
+    .section_box hr {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .sectionx ul {
+        width: 100%
+    }
+
+    .dash {
+        margin: 0px 20px;
+        border-left: 3px dashed HSLA(205, 85%, 92%, 1);
+        width: 80%;
+    }
+
+    .sectionx {
+        position: relative;
+        width: 100%;
+    }
+
+    .icon {
+        position: absolute;
+        top: 50%;
+        margin-top: -14px;
+        float: left;
+        height: 34px;
+        width: 17px;
+        border-left: solid 10px aqua;
+        border-right: solid 5px aqua;
+        display: inline-block;
+        line-height: 110%;
+    }
+
+    .margin-left {
+        padding-left: 18px;
+    }
+
+    </style>
+</head>
+<body>
+<nav class="nav-extended nav-full-header aw lighten-2" id="nav">
+    <div class="nav-background">
+        <img class="k" src="./img/cityscape-line3.png" alt="cityscape">
+        <img src="./img/cityscape-line1.png" alt="cityscape">
+        <img src="./img/cityscape-line2.png" alt="cityscape">
+    </div>
+    <div class="nav-wrapper db">
+        <a href="https://themes.materializecss.com/pages/index.html" class="brand-logo"><i
+                class="material-icons">camera</i>NiNi</a>
+        <a href="https://themes.materializecss.com/pages/full-header.html#" data-activates="nav-mobile"
+           class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="bt hide-on-med-and-down">
+            <li><a href="https://themes.materializecss.com/pages/demo">Gallery</a></li>
+            <li><a href="https://themes.materializecss.com/pages/dark-theme">Dark Theme</a></li>
+            <li><a class="modal-trigger" href="#modal1">登录</a>
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <i class="material-icons right">close</i>
+                        <div class="container">
+
+                            <h5 class="center-align">登录</h5>
+                            <div class="row">
+                                <div class="col s8 offset-s2">
+                                    <form>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input v-model="loginModel.eamil" type="email" class="validate"
+                                                       style=" border-bottom: 1px solid #9e9e9e;">
+                                                <label data-error="wrong" data-success="right">Email</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <input v-model="loginModel.username" type="text" class="validate"
+                                                       style=" border-bottom: 1px solid #9e9e9e;">
+                                                <label data-error="wrong" data-success="right">用户名</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <input v-model="loginModel.password" type="password" class="validate"
+                                                       style=" border-bottom: 1px solid #9e9e9e;">
+                                                <label data-error="wrong" data-success="right">密码</label>
+                                            </div>
+                                            <div class="col s12 right-align">
+                                                <button class="btn waves-effect waves-light" type="submit" name="action"
+                                                        v-on:click="login()">登录
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col s12 m4 l2"></div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </li>
+            <li><a class="modal-trigger" href="#modal2">注册</a>
+                <div id="modal2" class="modal">
+                    <div class="modal-content">
+                        <div class="container">
+                            <h5 class="center-align">注册</h5>
+                            <div class="row">
+                                <div class="col s8 offset-s2">
+                                    <form>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input v-model="loginModel.eamil" type="email" class="validate"
+                                                       style=" border-bottom: 1px solid #9e9e9e;">
+                                                <label data-error="wrong" data-success="right">Email</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <input v-model="loginModel.username" type="text" class="validate"
+                                                       style=" border-bottom: 1px solid #9e9e9e;">
+                                                <label data-error="wrong" data-success="right">用户名</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <input v-model="loginModel.password" type="password" class="validate"
+                                                       style=" border-bottom: 1px solid #9e9e9e;">
+                                                <label data-error="wrong" data-success="right">密码</label>
+                                            </div>
+                                            <div class="col s12 right-align">
+                                                <button class="btn waves-effect waves-light" type="submit" name="action"
+                                                        v-on:click="register()">注册
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col s12 m4 l2"></div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </li>
+            <li class="k"><a class="dropdown-button" href="https://themes.materializecss.com/pages/full-header.html#!"
+                             data-activates="feature-dropdown" data-beloworigin="true" data-constrainwidth="false">主题<i
+                    class="material-icons bt">arrow_drop_down</i></a>
+                <ul id="feature-dropdown" class="dropdown-content">
+                    <li><a href="https://themes.materializecss.com/pages/full-header">Fullscreen Header</a></li>
+                    <li><a href="https://themes.materializecss.com/pages/horizontal">Horizontal Style</a></li>
+                    <li><a href="https://themes.materializecss.com/pages/no-image">No Image Expand</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <div class="nav-header valign-wrapper">
+        <div class="t carousel-slider center" data-indicators="true">
+            <div class="carousel-item white-text" href="#one!">
+                <div class="db valign-wrapper">
+                    <h1>尼尼软件站</h1>
+                    <div class="ge">nini_station</div>
+                </div>
+            </div>
+            <div class="carousel-item white-text" href="#two!">
+                <div class="db valign-wrapper">
+                    <h1>更简单，更方便，更快速</h1>
+                    <div class="ge">nini_station</div>
+                </div>
+            </div>
+            <div class="carousel-item white-text" href="#three!">
+                <div class="db valign-wrapper">
+                    <h1>最优秀的软件站点</h1>
+                    <div class="ge">nini_station</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fixed Masonry Filters -->
+    <div class="categories-wrapper ao darken-3">
+        <div class="categories-container pin-top" style="top: 0px;">
+            <ul class="categories db">
+                <li class="k"><a href="soft_show.html">All</a></li>
+                <li><a href="soft_show.html">Polygon</a></li>
+                <li><a href="soft_show.html">Big Bang</a></li>
+                <li><a href="soft_show.html">Sacred Geometry</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Gallery -->
+<div id="portfolio" class="cx gray">
+    <div class="db">
+        <div class="b e" style="position: relative; height: 1271.17px;" id="app1">
+            <my-component1></my-component1>
+            <my-component1></my-component1>
+            <my-component1></my-component1>
+            <my-component1></my-component1>
+            <my-component1></my-component1>
+            <my-component1></my-component1>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!--<script src="js/jquery-3.2.1.js"></script>-->
+<script src="js/materialize.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+<script src="js/gallery.min.opt.js"></script>
+<script src="js/vue_self.js"></script>
+<script src="js/template.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        $('.carousel-slider').carousel({fullWidth: true});
+    });
+    $(document).ready(function () {
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+    });
+
+    var app1 = new Vue({
+        el: '#app1',
+        date: {},
+        components: {
+            'my-component1': template
+        }
+    });
+    // Vue.http.options.emulateJSON = true
+
+    var demo = new Vue({
+        el: '#nav',
+        data: {
+            show: false,
+            registerUrl:'http://120.25.227.42:8880/auth/users' ,
+            loginUrl: 'http://120.25.227.42:8880/auth/users/token',
+            registerModel: {
+                username: '123456',
+                email:'123@456.com',
+                password: '123456'
+            },
+            loginModel: {
+                username: '',
+                password: ''
+            },
+            msg: '',
+            userName: '',
+        },
+
+        mounted: function () {
+            register()
+            login()
+        },
+        methods: {
+            register: function () {
+                this.$http.post(this.registerUrl, this.registerModel)
+                    .then(function (response) {
+                        alert("asdasdsa")
+                        this.msg = '注册成功！'
+                    }).catch(function (response) {
+                    this.msg = response.json()
+                })
+            },
+            login: function () {
+
+                this.$http.post(this.loginUrl, this.loginModel)
+                    .then(function (response) {
+                        var body = JSON.parse(JSON.stringify(response.body))
+                        // console.log(body.access_token)
+                        this.msg = '登录成功！'
+                        this.userName = body.userName
+
+                        sessionStorage.setItem('accessToken', body.access_token)
+                        sessionStorage.setItem('userName', body.userName)
+
+                    }).catch(this.requestError)
+            },
+            logout: function () {
+
+                this.$http.post(this.logoutUrl)
+                    .then(function (response) {
+                        this.msg = '注销成功！'
+                        this.result = ''
+                        this.userName = ''
+                        this.loginModel.username = ''
+                        this.loginModel.password = ''
+
+                        sessionStorage.removeItem('userName')
+                        sessionStorage.removeItem('accessToken')
+
+                    }).catch(this.requestError)
+            },
+            callApi: function () {
+
+                var headers = {}
+                headers.Authorization = 'jwt ' + sessionStorage.getItem('accessToken')
+
+                this.$http.get(this.apiUrl, {
+                    headers: headers
+                })
+                    .then(function (response) {
+                        this.result = response.json()
+                    }).catch(this.requestError)
+            },
+            requestError: function (response) {
+            }
+        }
+    })
+</script>
+</body>
+</html>
